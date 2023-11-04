@@ -1,0 +1,101 @@
+body{
+  background-color: black;
+  overflow: hidden;
+}
+.slider{
+  display: flex;
+  max-height: 50vh;
+  .slider-img{
+    max-height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    object-fit: cover;
+    animation: img-animation 1s linear;
+  }
+}
+.buttons{
+  height: 50vh;
+  position: absolute;
+   top: 1.9%;
+   left: 0;
+  width: 100%;
+  overflow: hidden;
+
+  button{
+    all: unset;
+    padding: 0px 5px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    height: 100%;
+    font-size: 20px;
+
+    font-weight: bold;
+    &:hover{
+      cursor: pointer;
+      background-color: gray;
+      transition: all .5s ease;
+    }
+   
+    &:last-child{
+      right: 0%;
+    }
+  }
+}
+
+.play{
+  text-align: center;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  button{
+    all: unset;
+     font-size: 20px;
+     font-weight: bold;
+     color: white;
+    &:hover{
+      background-color: lightgray;
+      color: black;
+       border-radius: 20px;
+       transition: all .5s ease;
+    }
+  }
+}
+
+@keyframes img-animation{
+  from{
+    transform: translateX(-100%);
+    opacity: .5;
+  }
+  to{
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.remove-img{
+  animation:  remimg-animation 1s linear  !important;
+}
+
+@keyframes remimg-animation{
+  from{
+    transform: translateX(0%);
+  }
+  to{
+    transform: translateX(100%);
+    opacity: .5; 
+  }
+}
+
+@media only screen and (min-width:800px){
+  .slider{
+    max-height: 80vh;
+  }
+  .buttons{
+    height: 80vh;
+  }
+  .play{
+    top: 85%;
+  }
+}
